@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Listener Test</title>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .event-box {
+      width: 100%;
+      height: 100px;
+      padding: 20px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 60px;
+      cursor: pointer;
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="icons/icon48.png">
+</head>
+<body>
+  <h1>Event Listener Test Page</h1>
+  <div class="container">
+    <div id="abortBox" class="event-box">Abort Event</div>
+    <div id="blurBox" class="event-box" tabindex="0">Blur Event</div>
+    <div id="changeBox" class="event-box">
+      <input type="text" id="changeInput" placeholder="Change Event">
+    </div>
+    <div id="clickBox" class="event-box">Click Event</div>
+    <div id="dblclickBox" class="event-box">Double Click Event</div>
+    <div id="errorBox" class="event-box">Error Event</div>
+    <div id="focusBox" class="event-box" tabindex="0">Focus Event</div>
+    <div id="focusinBox" class="event-box" tabindex="0">Focusin Event</div>
+    <div id="focusoutBox" class="event-box" tabindex="0">Focusout Event</div>
+    <div id="inputBox" class="event-box">
+      <input type="text" id="inputInput" placeholder="Input Event">
+    </div>
+    <div id="keydownBox" class="event-box" tabindex="0">Keydown Event</div>
+    <div id="keypressBox" class="event-box" tabindex="0">Keypress Event</div>
+    <div id="keyupBox" class="event-box" tabindex="0">Keyup Event</div>
+    <div id="loadBox" class="event-box">Load Event</div>
+    <div id="mousedownBox" class="event-box">Mousedown Event</div>
+    <div id="mouseenterBox" class="event-box">Mouseenter Event</div>
+    <div id="mouseleaveBox" class="event-box">Mouseleave Event</div>
+    <div id="mousemoveBox" class="event-box">Mousemove Event</div>
+    <div id="mouseoutBox" class="event-box">Mouseout Event</div>
+    <div id="mouseoverBox" class="event-box">Mouseover Event</div>
+    <div id="mouseupBox" class="event-box">Mouseup Event</div>
+    <div id="resizeBox" class="event-box">Resize Event</div>
+    <div id="scrollBox" class="event-box" style="height: 200px; overflow: scroll;">
+      <div style="height: 300px;">Scroll Event</div>
+    </div>
+    <div id="selectBox" class="event-box">
+      <input type="text" id="selectInput" value="Select Event">
+    </div>
+    <div id="submitBox" class="event-box">
+      <form id="submitForm">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <div id="unloadBox" class="event-box">Unload Event</div>
+    <div id="wheelBox" class="event-box">Wheel Event</div>
+  </div>
+
+  <script>
+    function createListener(event) {
+      return () => {
+        alert(`${event} event triggered`);
+      };
+    }
+
+    document.getElementById('abortBox').addEventListener('abort', createListener('abort'));
+    document.getElementById('blurBox').addEventListener('blur', createListener('blur'));
+    document.getElementById('changeInput').addEventListener('change', createListener('change'));
+    document.getElementById('clickBox').addEventListener('click', createListener('click'));
+    document.getElementById('dblclickBox').addEventListener('dblclick', createListener('dblclick'));
+    document.getElementById('errorBox').addEventListener('error', createListener('error'));
+    document.getElementById('focusBox').addEventListener('focus', createListener('focus'));
+    document.getElementById('focusinBox').addEventListener('focusin', createListener('focusin'));
+    document.getElementById('focusoutBox').addEventListener('focusout', createListener('focusout'));
+    document.getElementById('inputInput').addEventListener('input', createListener('input'));
+    document.getElementById('keydownBox').addEventListener('keydown', createListener('keydown'));
+    document.getElementById('keypressBox').addEventListener('keypress', createListener('keypress'));
+    document.getElementById('keyupBox').addEventListener('keyup', createListener('keyup'));
+    window.addEventListener('load', createListener('load'));
+    document.getElementById('mousedownBox').addEventListener('mousedown', createListener('mousedown'));
+    document.getElementById('mouseenterBox').addEventListener('mouseenter', createListener('mouseenter'));
+    document.getElementById('mouseleaveBox').addEventListener('mouseleave', createListener('mouseleave'));
+    document.getElementById('mousemoveBox').addEventListener('mousemove', createListener('mousemove'));
+    document.getElementById('mouseoutBox').addEventListener('mouseout', createListener('mouseout'));
+    document.getElementById('mouseoverBox').addEventListener('mouseover', createListener('mouseover'));
+    document.getElementById('mouseupBox').addEventListener('mouseup', createListener('mouseup'));
+    window.addEventListener('resize', createListener('resize'));
+    document.getElementById('scrollBox').addEventListener('scroll', createListener('scroll'));
+    document.getElementById('selectInput').addEventListener('select', createListener('select'));
+    document.getElementById('submitForm').addEventListener('submit', createListener('submit'));
+    window.addEventListener('unload', createListener('unload'));
+    document.getElementById('wheelBox').addEventListener('wheel', createListener('wheel'));
+  </script>
+</body>
+</html>
